@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_clone/features/auth/repository/auth_repository.dart';
@@ -49,5 +48,13 @@ class AuthController {
       ref: ref,
       context: context,
     );
+  }
+
+  Stream<UserModel> userDataById(String userId) {
+    return authRepository.userData(userId);
+  }
+
+  void setUserState(bool isOnline) async {
+    authRepository.setUserState(isOnline);
   }
 }
